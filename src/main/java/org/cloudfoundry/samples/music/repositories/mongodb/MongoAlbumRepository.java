@@ -6,6 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@Profile("mongodb")
+@Profile({"mongodb", "cosmosdb"})
 public interface MongoAlbumRepository extends MongoRepository<Album, String> {
 }

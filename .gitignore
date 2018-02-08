@@ -19,3 +19,7 @@ build/
 
 *.log*
 /classes/
+
+.vscode
+.sts4-cache/
+bin/

@@ -25,6 +25,7 @@ where `<profile>` is one of the following values:
 * `postgres`
 * `mongodb`
 * `redis`
+* `cosmosdb`
 
 If no profile is provided, `in-memory` will be used. If any other profile is provided, the appropriate database server must be started separately. The application will use the host name `localhost` and the default port to connect to the database. The connection parameters can be configured by setting the appropriate [Spring Boot properties](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html). 
 
