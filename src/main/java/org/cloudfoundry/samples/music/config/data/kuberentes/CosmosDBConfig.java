@@ -1,9 +1,10 @@
-package org.cloudfoundry.samples.music.config.data;
+package org.cloudfoundry.samples.music.config.data.kuberentes;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -12,6 +13,7 @@ import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 
 @Configuration
 @Profile("cosmosdb")
+@ConditionalOnProperty(value="runtime", havingValue="kubernetes", matchIfMissing=true)
 public class CosmosDBConfig {
 
     @Autowired 
@@ -19,7 +21,7 @@ public class CosmosDBConfig {
 
     @Bean
     public MongoDbFactory mongoDbFactory() {
-        return new SimpleMongoDbFactory(new MongoClient(new MongoClientURI(config.getConnectionString())), "music");
+        return new SimpleMongoDbFactory(new MongoClient(new MongoClientURI(config.getURI())), "music");
     }
     
 }
